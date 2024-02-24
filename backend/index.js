@@ -1,11 +1,15 @@
 import express from "express";
 import mongoose from "mongoose";
-
+import dotenv from "dotenv";
 const app = express();
+dotenv.config();
 
-mongoose.connect(
-  "mongodb+srv://zalatdodo:0123162554@integrated-solutions.oxsqxx0.mongodb.net/?retryWrites=true&w=majority&appName=integrated-Solutions"
-);
+mongoose
+  .connect(process.env.MONGO)
+  .then((result) => {
+    console.log("Connected to mongoDB");
+  })
+  .catch((err) => console.log(err));
 
 app.listen(8080, () => {
   console.log("Server running on port 8080");
