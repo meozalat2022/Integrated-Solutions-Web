@@ -31,14 +31,24 @@ const SignUp = () => {
       };
     });
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const { firstName, lastName, email, password, confirmPassword } = data;
 
     if (firstName && lastName && email && password && confirmPassword) {
       if (password === confirmPassword) {
+        const res = await fetch("http://localhost:8080/user/signup", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        });
+
+        const resData = await res.json();
+        console.log(resData);
         alert("Successfully signed Up");
-        router.push("/login");
+        // router.push("/login");
       } else {
         alert("Password and confirm password does not match");
       }
@@ -124,7 +134,7 @@ const SignUp = () => {
               onChange={handleOnchange}
             />
           </div>
-          <button className="max-w-[120px] w-full text-white text-xl text-center font-medium py-1 rounded-full mt-4 bg-red-500 hover:bg-red-600 cursor-pointer m-auto">
+          <button className="max-w-[120px] w-full text-white text-xl text-center font-medium py-1 rounded-full mt-4 bg-primary hover:opacity-80 cursor-pointer m-auto">
             Sign Up
           </button>
         </form>

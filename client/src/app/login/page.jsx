@@ -54,7 +54,7 @@ const Login = () => {
             />
           </div>
 
-          <button className="max-w-[120px] w-full text-white text-xl text-center font-medium py-1 rounded-full mt-4 bg-red-500 hover:bg-red-600 cursor-pointer m-auto">
+          <button className="max-w-[120px] w-full text-white text-xl text-center font-medium py-1 rounded-full mt-4 bg-primary hover:opacity-80 cursor-pointer m-auto">
             LogIn
           </button>
         </form>
