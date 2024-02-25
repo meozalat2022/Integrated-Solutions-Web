@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ImageToBase64 } from "../../util/ImageToBase64";
+import { toast } from "react-toastify";
+
 const SignUp = () => {
   const router = useRouter();
   const [data, setData] = useState({
@@ -50,31 +52,40 @@ const SignUp = () => {
           });
 
           const resData = await res.json();
-          console.log("123456", resData);
 
           if (resData.success === false) {
             setLoading(false);
             setError(resData.message);
-            alert(error);
+            toast.success(error, {
+              hideProgressBar: false,
+            });
             return;
           }
           setLoading(false);
           setError(null);
           // console.log(resData);
           // alert("Successfully signed Up");
+          toast.success("Successfully signed Up", {
+            hideProgressBar: false,
+          });
           router.push("/login");
         } else {
-          alert("Password and confirm password does not match");
+          toast.success("Password and confirm password does not match", {
+            hideProgressBar: false,
+          });
+          // alert("Password and confirm password does not match");
         }
       } else {
-        alert("Please enter required fields");
+        toast.success("Please enter required fields", {
+          hideProgressBar: false,
+        });
+        // alert("Please enter required fields");
       }
     } catch (error) {
       setLoading(false);
       setError(error.message);
     }
   };
-  console.log(error);
   return (
     <div className=" p-3 md:p-4">
       <div className="w-full max-w-sm items-center flex flex-col bg-white m-auto p-4">
@@ -156,6 +167,7 @@ const SignUp = () => {
           <button className="max-w-[120px] w-full text-white text-xl text-center font-medium py-1 rounded-full mt-4 bg-primary hover:opacity-80 cursor-pointer m-auto">
             Sign Up
           </button>
+          {error && <p className="text-red-500 mt-5 text-center">{error}</p>}
         </form>
         <p>
           Already Have an Account ?{" "}

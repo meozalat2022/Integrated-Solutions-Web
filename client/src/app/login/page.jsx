@@ -10,6 +10,7 @@ import {
   signinStart,
   signinSuccess,
 } from "../../redux/user/userSlice";
+import { toast } from "react-toastify";
 const Login = () => {
   const dispatch = useDispatch();
 
@@ -43,15 +44,23 @@ const Login = () => {
       const resData = await res.json();
 
       if (resData.success === false) {
+        toast.success(resData.message, {
+          hideProgressBar: false,
+        });
         dispatch(signinFailure(resData.message));
         return;
       }
+      toast.success("Successfully logged in", {
+        hideProgressBar: false,
+      });
       dispatch(signinSuccess(resData));
       router.push("/");
       // use redux to dispatch user info
     } catch (error) {
       // use redux to dispatch login errors
-
+      toast.success(error.message, {
+        hideProgressBar: false,
+      });
       dispatch(signinFailure(error.message));
     }
 
