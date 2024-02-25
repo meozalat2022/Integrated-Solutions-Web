@@ -4,7 +4,16 @@ import signUpImage from "../../assets/login-animation.gif";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  signinFailure,
+  signinStart,
+  signinSuccess,
+} from "../../redux/user/userSlice";
 const Login = () => {
+  const dispatch = useDispatch();
+
+  const { loading, error } = useSelector((state) => state.user);
   const router = useRouter();
   const [data, setData] = useState({
     email: "",
@@ -21,8 +30,8 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const { email, password } = data;
-
+      // const { email, password } = data;
+      dispatch(signinStart());
       const res = await fetch("http://localhost:8080/user/signin", {
         method: "POST",
         headers: {
@@ -33,13 +42,17 @@ const Login = () => {
 
       const resData = await res.json();
 
-      console.log(resData);
+      if (resData.success === false) {
+        dispatch(signinFailure(resData.message));
+        return;
+      }
+      dispatch(signinSuccess(resData));
       router.push("/");
       // use redux to dispatch user info
     } catch (error) {
       // use redux to dispatch login errors
 
-      console.log(error);
+      dispatch(signinFailure(error.message));
     }
 
     // if (email && password) {
@@ -80,6 +93,7 @@ const Login = () => {
           <button className="max-w-[120px] w-full text-white text-xl text-center font-medium py-1 rounded-full mt-4 bg-primary hover:opacity-80 cursor-pointer m-auto">
             LogIn
           </button>
+          {error && <p className="text-red-500 mt-5 text-center">{error}</p>}
         </form>
         <p>
           Do't Have an Account ?{" "}
