@@ -20,8 +20,6 @@ dotenv.config();
 app.get("/", (req, res) => {
   res.send("server is running");
 });
-app.use("/user", userRouter);
-// app.use("/product", productRouter);
 mongoose
   .connect(process.env.MONGO)
   .then((result) => {
@@ -31,4 +29,18 @@ mongoose
 
 app.listen(8080, () => {
   console.log("Server running on port 8080");
+});
+app.use("/user", userRouter);
+// app.use("/product", productRouter);
+
+//error handling middleware
+
+app.use((err, req, next) => {
+  const statusCode = err.statusCode || 500;
+  const message = err.message || "Internal Server error";
+  return res.status(statusCode).json({
+    success: false,
+    statusCode,
+    message,
+  });
 });
