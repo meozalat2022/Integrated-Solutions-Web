@@ -15,7 +15,8 @@ const SignUp = () => {
     confirmPassword: "",
     imageUrl: "",
   });
-
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
   const handleOnchange = (e) => {
     const { name, value } = e.target;
     setData((prev) => {
@@ -33,29 +34,47 @@ const SignUp = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { firstName, lastName, email, password, confirmPassword } = data;
 
-    if (firstName && lastName && email && password && confirmPassword) {
-      if (password === confirmPassword) {
-        const res = await fetch("http://localhost:8080/user/signup", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        });
+    try {
+      setLoading(true);
+      const { firstName, lastName, email, password, confirmPassword } = data;
 
-        const resData = await res.json();
-        console.log(resData);
-        alert("Successfully signed Up");
-        // router.push("/login");
+      if (firstName && lastName && email && password && confirmPassword) {
+        if (password === confirmPassword) {
+          const res = await fetch("http://localhost:8080/user/signup", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          });
+
+          const resData = await res.json();
+          console.log("123456", resData);
+
+          if (resData.success === false) {
+            setLoading(false);
+            setError(resData.message);
+            alert(error);
+            return;
+          }
+          setLoading(false);
+          setError(null);
+          // console.log(resData);
+          // alert("Successfully signed Up");
+          router.push("/login");
+        } else {
+          alert("Password and confirm password does not match");
+        }
       } else {
-        alert("Password and confirm password does not match");
+        alert("Please enter required fields");
       }
-    } else {
-      alert("Please enter required fields");
+    } catch (error) {
+      setLoading(false);
+      setError(error.message);
     }
   };
+  console.log(error);
   return (
     <div className=" p-3 md:p-4">
       <div className="w-full max-w-sm items-center flex flex-col bg-white m-auto p-4">

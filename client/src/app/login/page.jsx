@@ -3,7 +3,9 @@ import React, { useState } from "react";
 import signUpImage from "../../assets/login-animation.gif";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 const Login = () => {
+  const router = useRouter();
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -15,15 +17,36 @@ const Login = () => {
       return { ...prev, [name]: value };
     });
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const { email, password } = data;
 
-    if (email && password) {
-      alert("Please enter required fields");
-    } else {
-      alert("Please enter required fields");
+    try {
+      const { email, password } = data;
+
+      const res = await fetch("http://localhost:8080/user/signin", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const resData = await res.json();
+
+      console.log(resData);
+      router.push("/");
+      // use redux to dispatch user info
+    } catch (error) {
+      // use redux to dispatch login errors
+
+      console.log(error);
     }
+
+    // if (email && password) {
+    //   alert("Please enter required fields");
+    // } else {
+    //   alert("Please enter required fields");
+    // }
   };
   return (
     <div className=" p-3 md:p-4">

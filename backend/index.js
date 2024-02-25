@@ -35,7 +35,7 @@ app.use("/user", userRouter);
 
 //error handling middleware
 
-app.use((err, req, next) => {
+app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
   const message = err.message || "Internal Server error";
   return res.status(statusCode).json({
