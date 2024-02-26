@@ -7,6 +7,8 @@ import { BsCartFill } from "react-icons/bs";
 import { HiOutlineUserCircle } from "react-icons/hi";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
+
 import {
   signoutStart,
   signoutFailure,
@@ -31,6 +33,9 @@ const Header = () => {
         return;
       }
       dispatch(signoutSuccess(data));
+      toast.success("Successfully Sign Out", {
+        hideProgressBar: false,
+      });
       router.push("./login");
     } catch (error) {
       dispatch(signoutFailure(error.message));
