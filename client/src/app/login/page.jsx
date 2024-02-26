@@ -14,13 +14,13 @@ import { toast } from "react-toastify";
 const Login = () => {
   const dispatch = useDispatch();
 
-  const { loading, error } = useSelector((state) => state.user);
+  const { loading, error, currentUser } = useSelector((state) => state.user);
   const router = useRouter();
   const [data, setData] = useState({
     email: "",
     password: "",
   });
-
+  console.log(currentUser);
   const handleOnchange = (e) => {
     const { name, value } = e.target;
     setData((prev) => {

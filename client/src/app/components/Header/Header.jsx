@@ -5,11 +5,36 @@ import React, { useState } from "react";
 import icon from "../../../assets/icon.png";
 import { BsCartFill } from "react-icons/bs";
 import { HiOutlineUserCircle } from "react-icons/hi";
-
+import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from "next/navigation";
+import {
+  signoutStart,
+  signoutFailure,
+  signoutSuccess,
+} from "@/redux/user/userSlice";
 const Header = () => {
+  const router = useRouter();
+  const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
+  const { error, loading, currentUser } = useSelector((state) => state.user);
   const handleShowMenu = () => {
     setShowMenu((prev) => !prev);
+  };
+
+  const handleSignout = async () => {
+    try {
+      dispatch(signoutStart());
+      const res = await fetch("http://localhost:8080/user/signout");
+      const data = await res.json();
+      if (data.success === false) {
+        dispatch(signoutFailure(data.message));
+        return;
+      }
+      dispatch(signoutSuccess(data));
+      router.push("./login");
+    } catch (error) {
+      dispatch(signoutFailure(error.message));
+    }
   };
   return (
     <header className=" shadow-md w-full h-16 px-2 md:px-4 z-50 bg-primary">
@@ -43,7 +68,18 @@ const Header = () => {
           </div>
           <div onClick={handleShowMenu} className=" text-slate-600">
             <div className="text-3xl cursor-pointer text-white">
-              <HiOutlineUserCircle />
+              {currentUser ? (
+                <div>
+                  <Image
+                    src={currentUser.imageUrl}
+                    width={500}
+                    height={500}
+                    className="h-full w-12"
+                  />
+                </div>
+              ) : (
+                <HiOutlineUserCircle />
+              )}
             </div>
             {showMenu && (
               <div className="flex flex-col absolute right-2 bg-white py-2 px-2 shadow drop-shadow-md">
@@ -53,12 +89,21 @@ const Header = () => {
                 >
                   New Product
                 </Link>
-                <Link
-                  href="./login"
-                  className="whitespace-nowrap cursor-pointer"
-                >
-                  Login
-                </Link>
+                {currentUser ? (
+                  <span
+                    onClick={handleSignout}
+                    className="whitespace-nowrap cursor-pointer"
+                  >
+                    Sign Out
+                  </span>
+                ) : (
+                  <Link
+                    href="./login"
+                    className="whitespace-nowrap cursor-pointer"
+                  >
+                    Login
+                  </Link>
+                )}
               </div>
             )}
           </div>
