@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import icon from "../../../assets/icon.png";
 import { BsCartFill } from "react-icons/bs";
 import { HiOutlineUserCircle } from "react-icons/hi";
@@ -18,10 +18,17 @@ const Header = () => {
   const router = useRouter();
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
+  const [authUser, setAuthUser] = useState(false);
   const { error, loading, currentUser } = useSelector((state) => state.user);
   const handleShowMenu = () => {
     setShowMenu((prev) => !prev);
   };
+
+  useEffect(() => {
+    if (currentUser) {
+      setAuthUser(true);
+    }
+  }, []);
 
   const handleSignout = async () => {
     try {
@@ -73,15 +80,13 @@ const Header = () => {
           </div>
           <div onClick={handleShowMenu} className=" text-slate-600">
             <div className="text-3xl cursor-pointer text-white">
-              {currentUser ? (
-                <div>
-                  <Image
-                    src={currentUser.imageUrl}
-                    width={500}
-                    height={500}
-                    className="h-full w-12"
-                  />
-                </div>
+              {authUser ? (
+                <Image
+                  src={currentUser.imageUrl}
+                  width={500}
+                  height={500}
+                  className="h-full w-12"
+                />
               ) : (
                 <HiOutlineUserCircle />
               )}
