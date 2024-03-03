@@ -4,7 +4,13 @@ import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import logo from "../../../assets/logo.jpg";
 import { BsCartFill } from "react-icons/bs";
-import { HiOutlineUserCircle } from "react-icons/hi";
+import { GiHamburgerMenu } from "react-icons/gi";
+import {
+  MdKeyboardArrowDown,
+  MdKeyboardArrowUp,
+  MdOutlineKeyboardArrowDown,
+} from "react-icons/md";
+import { FaHeart } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
@@ -150,11 +156,25 @@ const Header = () => {
             Register
           </Link>
           <div className="flex gap-4 pl-10">
+            <Link
+              href={"./cart"}
+              className="text-2xl cursor-pointer relative text-white hover:opacity-85"
+            >
+              <BsCartFill />
+              <div className="absolute -top-1 -right-1 text-white bg-accent text-xs p-0 m-0 w-4 rounded-lg text-center">
+                12
+              </div>
+            </Link>
             <div>
-              <p>Cart</p>
-            </div>
-            <div>
-              <p>Heart</p>
+              <Link
+                className="text-2xl cursor-pointer relative text-white hover:opacity-85"
+                href={"./favorite"}
+              >
+                <FaHeart />
+                <div className="absolute -top-1 -right-1 text-white bg-accent text-xs p-0 m-0 w-4 rounded-lg text-center">
+                  12
+                </div>
+              </Link>
             </div>
           </div>
         </div>
@@ -165,10 +185,19 @@ const Header = () => {
       </div>
 
       {/* navigator */}
-      <div className="flex items-center mt-6 mx-6">
-        <div className="w-[200px]">
-          <p>Modal</p>
-        </div>
+      <div className="flex items-center mt-6 mx-6 ">
+        <Link className="flex gap-4 mr-4 items-center" href="?modal=true">
+          <div>
+            <GiHamburgerMenu className="text-white text-lg" />
+          </div>
+          <div>
+            <p className="text-white font-semibold">Shop By Category</p>
+          </div>
+          <div>
+            <MdKeyboardArrowDown className="text-white text-lg" />
+          </div>
+        </Link>
+
         <div>
           <NavBar />
         </div>
