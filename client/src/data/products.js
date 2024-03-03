@@ -229,6 +229,30 @@ export const CATEGORY = [
     imageUrl:
       "https://www.samirandaly.com/media/catalog/category/1_Custom__3.jpg",
   },
+  {
+    id: 5,
+    title: "Categoy 5",
+    imageUrl:
+      "https://www.samirandaly.com/media/catalog/category/1_Custom__3.jpg",
+  },
+  {
+    id: 6,
+    title: "Categoy 6",
+    imageUrl:
+      "https://www.samirandaly.com/media/catalog/category/1_Custom__3.jpg",
+  },
+  {
+    id: 7,
+    title: "Categoy 7",
+    imageUrl:
+      "https://www.samirandaly.com/media/catalog/category/1_Custom__3.jpg",
+  },
+  {
+    id: 8,
+    title: "Categoy 8",
+    imageUrl:
+      "https://www.samirandaly.com/media/catalog/category/1_Custom__3.jpg",
+  },
 ];
 
 export const BRAND = [
