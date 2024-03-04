@@ -15,7 +15,7 @@ const Modal = (props) => {
             <div className="flex flex-col  mt-4">
               <div className="flex w-full items-center px-2 justify-between">
                 <div className="flex-1">
-                  <p className="text-lg font-bold">Modal content</p>
+                  <p className="text-lg font-bold">All Categories</p>
                 </div>
                 <Link className="" href={pathname}>
                   <button type="button" className=" p-2 text-2xl font-bold">

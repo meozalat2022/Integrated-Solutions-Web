@@ -75,7 +75,7 @@ const Header = () => {
     <header className=" shadow-md w-full h-full  z-50 bg-primary flex flex-col">
       {/* language currency */}
 
-      <div className="w-full flex justify-end px-8">
+      <div className="w-full flex justify-center md:justify-end px-8">
         {selectedLanguage === "arabic" ? (
           <div className="flex justify-end">
             <div onClick={handleLanguageToggle} className="flex flex-col w-24 ">
@@ -119,6 +119,37 @@ const Header = () => {
               </div>
             </div>
           )}
+          <div className="flex gap-2 text-white md:hidden ml-16 justify-center">
+            <Link className="hover:text-slate-700" href={"./login"}>
+              Login
+            </Link>
+            <p>/</p>
+            <Link className="hover:text-slate-700" href={"./signUp"}>
+              Register
+            </Link>
+            <div className="flex gap-4 pl-10">
+              <Link
+                href={"./cart"}
+                className="text-2xl cursor-pointer relative text-white hover:opacity-85"
+              >
+                <BsCartFill />
+                <div className="absolute -top-1 -right-1 text-white bg-accent text-xs p-0 m-0 w-4 rounded-lg text-center">
+                  12
+                </div>
+              </Link>
+              <div>
+                <Link
+                  className="text-2xl cursor-pointer relative text-white hover:opacity-85"
+                  href={"./favorite"}
+                >
+                  <FaHeart />
+                  <div className="absolute -top-1 -right-1 text-white bg-accent text-xs p-0 m-0 w-4 rounded-lg text-center">
+                    12
+                  </div>
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       {/* horizontal line break */}
@@ -131,23 +162,23 @@ const Header = () => {
       <div className="flex justify-between mx-8 my-6 items-center">
         {/* logo */}
         <Link just href={"/"} className="">
-          <div className="h-14 w-[250px]">
+          <div className="h-14  lg:w-[150px] md:w-[100px] ">
             <Image className="h-full w-full" src={logo} alt="icon" />
           </div>
         </Link>
         {/* search */}
-        <form className="flex flex-1 mx-10 gap-2 items-center ">
+        <form className="flex flex-1 mx-10 gap-2 items-center justify-center">
           <input
-            className="h-10 w-full rounded-md px-2 outline-none"
+            className="h-10 lg:w-full w-[250px] rounded-md px-2 outline-none"
             type="text"
             placeholder="Search..."
           />
-          <button className="bg-accent rounded-lg h-10 w-[120px] text-white text-center hover:opacity-85">
+          <button className="bg-accent rounded-lg h-10 lg:text-lg md:text-xs lg:w-[120px] w-[50px] text-white text-center hover:opacity-85">
             Search
           </button>
         </form>
         {/* authentication */}
-        <div className="flex gap-2 text-white">
+        <div className="md:flex gap-2 text-white hidden">
           <Link className="hover:text-slate-700" href={"./login"}>
             Login
           </Link>
@@ -185,20 +216,25 @@ const Header = () => {
       </div>
 
       {/* navigator */}
-      <div className="flex items-center mt-6 mx-6 ">
-        <Link className="flex gap-4 mr-4 items-center" href="?modal=true">
+      <div className="flex items-center justify-center md:mt-6 mx-6 ">
+        <Link
+          className="md:flex hidden gap-4 mr-4 items-center"
+          href="?modal=true"
+        >
           <div>
             <GiHamburgerMenu className="text-white text-lg" />
           </div>
           <div>
-            <p className="text-white font-semibold">Shop By Category</p>
+            <p className="text-white font-semibold lg:text-sm">
+              Shop By Category
+            </p>
           </div>
           <div>
             <MdKeyboardArrowDown className="text-white text-lg" />
           </div>
         </Link>
 
-        <div>
+        <div className="">
           <NavBar />
         </div>
       </div>

@@ -4,7 +4,7 @@ import NavBarLinks from "./NavBarLinks";
 
 const NavBar = () => {
   return (
-    <nav className="gap-4 md:gap-6 text-base md:text-lg hidden md:flex">
+    <nav className="gap-2 text-xs justify-center md:gap-6 md:text-sm lg:text-base md:flex ">
       <div>
         <ul className="flex gap-8 uppercase items-center">
           <li>
