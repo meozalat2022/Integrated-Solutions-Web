@@ -10,7 +10,7 @@ const ProductCard = () => {
       <div className="mb-4 ml-16 flex justify-center md:justify-start">
         <h2 className="text-primary font-bold">Latest Products</h2>
       </div>
-      <div className="flex items-center justify-center gap-4">
+      <div className="flex items-center justify-center gap-4 flex-wrap">
         {productsList.map((item) => (
           <div className="flex flex-col gap-1">
             <div className=" h-[200px] w-52 bg-white  flex justify-center">
