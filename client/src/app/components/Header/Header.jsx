@@ -72,7 +72,7 @@ const Header = () => {
   // console.log(selectedCurrency);
 
   return (
-    <header className=" shadow-md w-full h-full  z-50 bg-primary flex flex-col">
+    <header className="mb-2 shadow-md w-full h-full  z-50 bg-primary flex flex-col">
       {/* language currency */}
 
       <div className="w-full flex justify-center md:justify-end px-8">

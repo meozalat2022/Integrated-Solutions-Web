@@ -19,7 +19,7 @@ const HomeSwiper = () => {
         offers.length > 0 &&
         offers.map((item) => (
           <SwiperSlide key={item.imageUrl}>
-            <div className="h-[500px]">
+            <div className="md:h-[500px] h-[250px]">
               <Image
                 className="z-0"
                 alt={item.title}
@@ -29,13 +29,15 @@ const HomeSwiper = () => {
                 objectPosition="center"
               />
               <div className="absolute top-1/3 right-36">
-                <p className="mb-4 font-semibold text-2xl text-slate-600">
+                <p className="mb-4 font-semibold text-sm md:text-2xl text-slate-600">
                   Big Saving Days Sale
                 </p>
-                <h1 className="mb-4 text-4xl font-bold">{item.title}</h1>
-                <p className="mb-10 font-semibold text-2xl text-slate-600">
+                <h1 className="mb-4 text-base md:text-4xl font-bold">
+                  {item.title}
+                </h1>
+                <p className="mb-10 font-semibold text-sm md:text-2xl text-slate-600">
                   Starting At Only{" "}
-                  <span className="text-3xl text-primary font-bold">
+                  <span className="text-sm md:text-3xl text-primary font-bold">
                     $
                     {(
                       item.price -
@@ -44,7 +46,7 @@ const HomeSwiper = () => {
                   </span>
                 </p>
                 <Link
-                  className="px-6 py-4 bg-primary rounded-lg hover:bg-slate-800 hover:text-slate-200 text-white text-base font-bold uppercase"
+                  className="px-2 py-1 md:px-6 md:py-4 bg-primary rounded-lg hover:bg-slate-800 hover:text-slate-200 text-white text-xs md:text-base font-bold uppercase"
                   href={`./productDetails/:${item.id}`}
                 >
                   Shop Now
