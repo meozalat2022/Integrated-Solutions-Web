@@ -7,7 +7,7 @@ const BrandCard = () => {
   const brandsCard = BRAND.slice(0, 5);
   return (
     <div className="mt-8">
-      <div className="flex  gap-4">
+      <div className="flex justify-center gap-4">
         {brandsCard.map((item) => (
           <Link
             className="hover:animate-pulse w-40 h-40 mx-6"

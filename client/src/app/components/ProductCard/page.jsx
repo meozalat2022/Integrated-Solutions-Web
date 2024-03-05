@@ -7,7 +7,7 @@ const ProductCard = () => {
   const productsList = PRODUCTS.slice(0, 6);
   return (
     <div>
-      <div className="mb-4 pl-2 flex justify-center md:justify-start">
+      <div className="mb-4 ml-16 flex justify-center md:justify-start">
         <h2 className="text-primary font-bold">Latest Products</h2>
       </div>
       <div className="flex items-center justify-center gap-4">

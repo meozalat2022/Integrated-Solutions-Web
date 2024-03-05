@@ -72,7 +72,7 @@ const Header = () => {
   // console.log(selectedCurrency);
 
   return (
-    <header className="mb-2 shadow-md w-full h-full  z-50 bg-primary flex flex-col">
+    <header className="mb-1 shadow-md w-full h-[250px]  z-50 bg-primary flex flex-col">
       {/* language currency */}
 
       <div className="w-full flex justify-center md:justify-end px-8">
@@ -216,7 +216,7 @@ const Header = () => {
       </div>
 
       {/* navigator */}
-      <div className="flex items-center justify-center md:mt-6 mx-6 ">
+      <div className="flex items-center justify-center md:justify-start md:mt-6 mx-6 ">
         <Link
           className="md:flex hidden gap-4 mr-4 items-center"
           href="?modal=true"

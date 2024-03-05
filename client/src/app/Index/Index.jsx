@@ -17,24 +17,24 @@ const Index = () => {
   };
   return (
     <div className="flex m-auto rounded-md flex-col">
-      <div className="flex flex-col w-full items-center bg-red-50">
+      <div className="flex flex-col w-full items-center bg-red-50 pb-4">
         {/* promotion swiper */}
         <div className=" mt-10 w-3/4">
           <HomeSwiper />
         </div>
-        <div className="w-full px-6 mt-6  py-10">
-          <CategoryCard />
-        </div>
+      </div>
+      <div className="w-full px-6 mt-6  py-10">
+        <CategoryCard />
+      </div>
 
-        <div className=" flex gap-5 mb-10">
-          <ProductCard />
-        </div>
-        <div className="flex gap-5">
-          <ProductCard />
-        </div>
-        <div>
-          <BrandCard />
-        </div>
+      <div className=" w-full px-6 mt-6  py-10">
+        <ProductCard />
+      </div>
+      <div className="w-full px-6 mt-6  py-10">
+        <ProductCard />
+      </div>
+      <div className="w-full px-6 mt-6  py-10">
+        <BrandCard />
       </div>
     </div>
   );

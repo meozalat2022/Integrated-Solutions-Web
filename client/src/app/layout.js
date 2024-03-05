@@ -16,7 +16,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="flex flex-col h-screen bg-slate-100">
+      <body className="h-screen bg-slate-100">
         <Providers>
           <ToastContainer
             position="top-right"
@@ -33,8 +33,8 @@ export default function RootLayout({ children }) {
           />
           <Header />
           {children}
+          <Footer />
           <Modal />
-          {/* <Footer /> */}
         </Providers>
       </body>
     </html>
