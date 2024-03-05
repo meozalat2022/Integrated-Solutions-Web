@@ -25,32 +25,12 @@ const Index = () => {
         <div className="w-full px-6 mt-6  py-10">
           <CategoryCard />
         </div>
-        <div>
-          <h2 className="mb-4 font-bold text-2xl text-slate-400">
-            Latest Products
-          </h2>
-          <div className="flex gap-4">
-            <button onClick={onPrev}>
-              <GrPrevious />
-            </button>
-            <button onClick={onNext}>
-              <GrNext />
-            </button>
-          </div>
+
+        <div className=" flex gap-5 mb-10">
+          <ProductCard />
         </div>
-        <div
-          className=" flex gap-5 overflow-scroll scrollbar-none scroll-smooth transition-all"
-          ref={slideRef}
-        >
-          {PRODUCTS &&
-            PRODUCTS.map((item) => (
-              <ProductCard
-                id={item.id}
-                imageUrl={item.imageUrl}
-                price={item.price}
-                description={item.description}
-              />
-            ))}
+        <div className="flex gap-5">
+          <ProductCard />
         </div>
         <div>
           <BrandCard />

@@ -27,11 +27,14 @@ const CategoryCard = () => {
           </Link>
         ))}
       </div>
-      <Link href={"/"} className="flex justify-center items-center mt-4">
-        <button className="p-2 hover:opacity-85 hover:text-slate-200 bg-accent text-base text-white rounded-lg">
+      <div className="flex justify-center mt-4">
+        <Link
+          href={"/"}
+          className=" p-2 hover:opacity-85 hover:text-slate-200 bg-accent text-base text-white rounded-lg"
+        >
           See More
-        </button>
-      </Link>
+        </Link>
+      </div>
     </div>
   );
 };
