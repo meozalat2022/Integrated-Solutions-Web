@@ -1,7 +1,7 @@
 export const PRODUCTS = [
   {
-    id: 1,
-    categoryId: 1,
+    id: "1",
+    categoryId: "1",
     brandId: 1,
     title: "Item 1",
     description: "description item 1",
@@ -12,8 +12,8 @@ export const PRODUCTS = [
     hasPromotion: true,
   },
   {
-    id: 2,
-    categoryId: 2,
+    id: "2",
+    categoryId: "2",
     brandId: 4,
     title: "Item 2",
     description: "description item 2",
@@ -24,8 +24,8 @@ export const PRODUCTS = [
     hasPromotion: true,
   },
   {
-    id: 3,
-    categoryId: 3,
+    id: "3",
+    categoryId: "3",
     brandId: 3,
     title: "Item 3",
     description: "description item 3",
@@ -36,8 +36,8 @@ export const PRODUCTS = [
     hasPromotion: true,
   },
   {
-    id: 4,
-    categoryId: 4,
+    id: "4",
+    categoryId: "4",
     brandId: 2,
     title: "Item 4",
     description: "description item 4",
@@ -48,8 +48,8 @@ export const PRODUCTS = [
     hasPromotion: true,
   },
   {
-    id: 5,
-    categoryId: 1,
+    id: "5",
+    categoryId: "1",
     brandId: 1,
     title: "Item 5",
     description: "description item 5",
@@ -60,8 +60,8 @@ export const PRODUCTS = [
     hasPromotion: true,
   },
   {
-    id: 6,
-    categoryId: 2,
+    id: "6",
+    categoryId: "2",
     brandId: 4,
     title: "Item 6",
     description: "description item 6",
@@ -72,8 +72,8 @@ export const PRODUCTS = [
     hasPromotion: true,
   },
   {
-    id: 7,
-    categoryId: 3,
+    id: "7",
+    categoryId: "3",
     brandId: 3,
     title: "Item 7",
     description: "description item 7",
@@ -84,8 +84,8 @@ export const PRODUCTS = [
     hasPromotion: true,
   },
   {
-    id: 8,
-    categoryId: 4,
+    id: "8",
+    categoryId: "4",
     brandId: 2,
     title: "Item 8",
     description: "description item 8",
@@ -96,8 +96,8 @@ export const PRODUCTS = [
     hasPromotion: true,
   },
   {
-    id: 9,
-    categoryId: 1,
+    id: "9",
+    categoryId: "1",
     brandId: 1,
     title: "Item 9",
     description: "description item 9",
@@ -108,8 +108,8 @@ export const PRODUCTS = [
     hasPromotion: true,
   },
   {
-    id: 10,
-    categoryId: 2,
+    id: "10",
+    categoryId: "2",
     brandId: 4,
     title: "Item 10",
     description: "description item 10",
@@ -120,8 +120,8 @@ export const PRODUCTS = [
     hasPromotion: true,
   },
   {
-    id: 11,
-    categoryId: 3,
+    id: "11",
+    categoryId: "3",
     brandId: 3,
     title: "Item 11",
     description: "description item 11",
@@ -132,8 +132,8 @@ export const PRODUCTS = [
     hasPromotion: false,
   },
   {
-    id: 12,
-    categoryId: 4,
+    id: "12",
+    categoryId: "4",
     brandId: 2,
     title: "Item 12",
     description: "description item 12",
@@ -144,8 +144,8 @@ export const PRODUCTS = [
     hasPromotion: false,
   },
   {
-    id: 13,
-    categoryId: 1,
+    id: "13",
+    categoryId: "1",
     brandId: 1,
     title: "Item 13",
     description: "description item 13",
@@ -155,8 +155,8 @@ export const PRODUCTS = [
     hasPromotion: false,
   },
   {
-    id: 14,
-    categoryId: 2,
+    id: "14",
+    categoryId: "2",
     brandId: 4,
     title: "Item 14",
     description: "description item 14",
@@ -167,8 +167,8 @@ export const PRODUCTS = [
     hasPromotion: false,
   },
   {
-    id: 15,
-    categoryId: 3,
+    id: "15",
+    categoryId: "3",
     brandId: 3,
     title: "Item 15",
     description: "description item 15",
@@ -179,8 +179,8 @@ export const PRODUCTS = [
     hasPromotion: false,
   },
   {
-    id: 16,
-    categoryId: 4,
+    id: "16",
+    categoryId: "4",
     brandId: 2,
     title: "Item 16",
     description: "description item 16",
@@ -191,8 +191,8 @@ export const PRODUCTS = [
     hasPromotion: false,
   },
   {
-    id: 17,
-    categoryId: 1,
+    id: "17",
+    categoryId: "1",
     brandId: 1,
     title: "Item 17",
     description: "description item 17",
@@ -206,49 +206,49 @@ export const PRODUCTS = [
 
 export const CATEGORY = [
   {
-    id: 1,
+    id: "1",
     title: "Categoy 1",
     imageUrl:
       "https://www.samirandaly.com/media/catalog/category/5_Custom__1_1.jpg",
   },
   {
-    id: 2,
+    id: "2",
     title: "Categoy 2",
     imageUrl:
       "https://www.samirandaly.com/media/catalog/category/3_Custom__1_1.jpg",
   },
   {
-    id: 3,
+    id: "3",
     title: "Categoy 3",
     imageUrl:
       "https://www.samirandaly.com/media/catalog/category/8_Custom_.jpg",
   },
   {
-    id: 4,
+    id: "4",
     title: "Categoy 4",
     imageUrl:
       "https://www.samirandaly.com/media/catalog/category/1_Custom__3.jpg",
   },
   {
-    id: 5,
+    id: "5",
     title: "Categoy 5",
     imageUrl:
       "https://www.samirandaly.com/media/catalog/category/1_Custom__3.jpg",
   },
   {
-    id: 6,
+    id: "6",
     title: "Categoy 6",
     imageUrl:
       "https://www.samirandaly.com/media/catalog/category/1_Custom__3.jpg",
   },
   {
-    id: 7,
+    id: "7",
     title: "Categoy 7",
     imageUrl:
       "https://www.samirandaly.com/media/catalog/category/1_Custom__3.jpg",
   },
   {
-    id: 8,
+    id: "8",
     title: "Categoy 8",
     imageUrl:
       "https://www.samirandaly.com/media/catalog/category/1_Custom__3.jpg",
@@ -257,22 +257,22 @@ export const CATEGORY = [
 
 export const BRAND = [
   {
-    id: 1,
+    id: "1",
     title: "Brand 1",
     imageUrl: "https://www.samirandaly.com/media/mageplaza/brand/carl.jpg",
   },
   {
-    id: 2,
+    id: "2",
     title: "Brand 2",
     imageUrl: "https://www.samirandaly.com/media/mageplaza/brand/C_J.jpeg",
   },
   {
-    id: 3,
+    id: "3",
     title: "Brand 3",
     imageUrl: "https://www.samirandaly.com/media/mageplaza/brand/be.png",
   },
   {
-    id: 4,
+    id: "4",
     title: "Brand 4",
     imageUrl: "https://www.samirandaly.com/media/mageplaza/brand/ati.png",
   },

@@ -3,48 +3,32 @@ import { PRODUCTS } from "@/data/products";
 import Link from "next/link";
 import Image from "next/image";
 
-const ProductCard = () => {
-  const productsList = PRODUCTS.slice(0, 6);
+const ProductCard = ({ id, imageUrl, title, price }) => {
   return (
     <div>
-      <div className="mb-4 ml-16 flex justify-center md:justify-start">
-        <h2 className="text-primary font-bold">Latest Products</h2>
-      </div>
-      <div className="flex items-center justify-center gap-4 flex-wrap">
-        {productsList.map((item) => (
-          <div className="flex flex-col gap-1">
-            <div className=" h-[200px] w-52 bg-white  flex justify-center">
-              <Link className="" href={`./productDetails/:${item.id}`}>
-                <Image
-                  src={item.imageUrl}
-                  // layout="fill"
-                  // objectFit="cover"
-                  width={500}
-                  height={500}
-                  className="h-full w-full"
-                />
-              </Link>
-            </div>
-            <Link href={`./productDetails/:${item.id}`}>
-              <p className="bg-white text-center text-accent text-base font-bold">
-                {item.price} $
-              </p>
-              <p className="bg-white text-center text-base font-semibold">
-                {item.description}
-              </p>
-              <button className="bg-accent p-4 w-full rounded-b-lg text-white text-center -text-base font-semibold">
-                Add To Cart
-              </button>
-            </Link>
-          </div>
-        ))}
-      </div>
-      <div className="flex justify-center mt-4">
-        <Link
-          href={"/"}
-          className=" p-2 hover:opacity-85 hover:text-slate-200 bg-accent text-base text-white rounded-lg"
-        >
-          See More
+      <div className="flex flex-col gap-1">
+        <div className=" h-[200px] w-52 bg-white  flex justify-center">
+          <Link className="" href={`./productDetails/:${id}`}>
+            <Image
+              src={imageUrl}
+              // layout="fill"
+              // objectFit="cover"
+              width={500}
+              height={500}
+              className="h-full w-full"
+            />
+          </Link>
+        </div>
+        <Link href={`./productDetails/:${id}`}>
+          <p className="bg-white text-center text-accent text-base font-bold">
+            {price} $
+          </p>
+          <p className="bg-white text-center text-base font-semibold">
+            {title}
+          </p>
+          <button className="bg-accent p-4 w-full rounded-b-lg text-white text-center -text-base font-semibold">
+            Add To Cart
+          </button>
         </Link>
       </div>
     </div>
