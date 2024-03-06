@@ -15,10 +15,10 @@ const productsByCategory = ({ params }) => {
           <div className="flex justify-end mr-8 mb-2">
             <p>sort By</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4 mr-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 mr-10 items-center">
             {list &&
               list.map((item) => (
-                <div className="flex ">
+                <div className="flex">
                   <ProductCard
                     id={item.id}
                     title={item.title}

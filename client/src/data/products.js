@@ -25,7 +25,7 @@ export const PRODUCTS = [
   },
   {
     id: "3",
-    categoryId: "3",
+    categoryId: "4",
     brandId: 3,
     title: "Item 3",
     description: "description item 3",
@@ -49,7 +49,7 @@ export const PRODUCTS = [
   },
   {
     id: "5",
-    categoryId: "1",
+    categoryId: "4",
     brandId: 1,
     title: "Item 5",
     description: "description item 5",
@@ -61,7 +61,7 @@ export const PRODUCTS = [
   },
   {
     id: "6",
-    categoryId: "2",
+    categoryId: "4",
     brandId: 4,
     title: "Item 6",
     description: "description item 6",

@@ -11,7 +11,7 @@ const CategoryCard = () => {
       <div className="flex items-center justify-center gap-4 flex-wrap md:flex-nowrap">
         {categoryItems.map((item) => (
           <Link
-            href={`./productsList/:${item.id}`}
+            href={`./productByCategory/:${item.id}`}
             className="bg-gradient-to-b from-accent to-white h-40 w-40 md:h-60 md:w-60 flex flex-col rounded-lg items-center"
           >
             <Image
