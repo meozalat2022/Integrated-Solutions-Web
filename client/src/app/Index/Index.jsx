@@ -20,7 +20,7 @@ const Index = () => {
   const productsList = PRODUCTS.slice(0, 5);
   return (
     <div className="flex m-auto rounded-md flex-col">
-      <div className="flex flex-col w-full items-center bg-red-50 pb-4">
+      <div className="flex flex-col w-full items-center bg-red-50 pb-4 -z-10">
         {/* promotion swiper */}
         <div className=" mt-10 w-3/4">
           <HomeSwiper />
@@ -37,6 +37,7 @@ const Index = () => {
         <div className="flex  items-center justify-center gap-12 flex-wrap">
           {productsList.map((item) => (
             <ProductCard
+              key={item.id}
               id={item.id}
               title={item.title}
               imageUrl={item.imageUrl}
@@ -61,6 +62,7 @@ const Index = () => {
         <div className="flex items-center justify-center gap-12 flex-wrap">
           {productsList.map((item) => (
             <ProductCard
+              key={item.id}
               id={item.id}
               title={item.title}
               imageUrl={item.imageUrl}

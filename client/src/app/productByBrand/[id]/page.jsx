@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { PRODUCTS, BRAND } from "@/data/products";
 import ProductCard from "@/app/components/ProductCard/page";
 import Select from "react-select";
-const productsByCategory = ({ params }) => {
+const productsByBrand = ({ params }) => {
   const [selectedOption, setSelectedOption] = useState("");
 
   const options = [
@@ -15,22 +15,22 @@ const productsByCategory = ({ params }) => {
     { value: "nameZ", label: "name Z to A" },
   ];
 
-  const catId = params.id.slice(-1);
+  const brandId = params.id.slice(-1);
 
-  const list = PRODUCTS.filter((item) => item.categoryId === catId);
+  const list = PRODUCTS.filter((item) => item.categoryId === brandId);
 
-  let brands = [];
-  for (let i in list) {
-    const foundBrands = BRAND.filter((item) => item.id === list[i].brandId);
-    for (let j in foundBrands) {
-      brands.push(foundBrands[j]);
-    }
-  }
-  const uniqArr = [...new Set(brands)];
+  //   let brands = [];
+  //   for (let i in list) {
+  //     const foundBrands = BRAND.filter((item) => item.id === list[i].brandId);
+  //     for (let j in foundBrands) {
+  //       brands.push(foundBrands[j]);
+  //     }
+  //   }
+  //   const uniqArr = [...new Set(brands)];
 
   return (
     <div className="flex gap-6 w-full justify-center my-4">
-      <div className="border border-solid border-slate-300 w-64 m-6 hidden lg:flex flex-col">
+      {/* <div className="border border-solid border-slate-300 w-64 m-6 hidden lg:flex flex-col">
         <h2 className="text-center mt-2">Filter by</h2>
         <div className="mt-4 ml-8">
           {uniqArr.map((br) => (
@@ -40,7 +40,7 @@ const productsByCategory = ({ params }) => {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
 
       <div className=" ml-8">
         <div className="flex flex-col">
@@ -78,4 +78,4 @@ const productsByCategory = ({ params }) => {
   );
 };
 
-export default productsByCategory;
+export default productsByBrand;

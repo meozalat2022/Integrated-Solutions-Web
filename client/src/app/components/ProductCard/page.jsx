@@ -3,12 +3,12 @@ import { PRODUCTS } from "@/data/products";
 import Link from "next/link";
 import Image from "next/image";
 
-const ProductCard = ({ id, imageUrl, title, price }) => {
+const ProductCard = ({ id, imageUrl, title, price, key }) => {
   return (
-    <div>
+    <div key={key}>
       <div className="flex flex-col gap-1">
         <div className=" h-[200px] w-52 bg-white  flex justify-center">
-          <Link className="" href={`./productDetails/:${id}`}>
+          <Link className="" href={`/productDetails/:${id}`}>
             <Image
               src={imageUrl}
               // layout="fill"
@@ -19,7 +19,7 @@ const ProductCard = ({ id, imageUrl, title, price }) => {
             />
           </Link>
         </div>
-        <Link href={`./productDetails/:${id}`}>
+        <Link href={`/productDetails/:${id}`}>
           <p className="bg-white text-center text-accent text-base font-bold">
             {price} $
           </p>

@@ -10,6 +10,7 @@ const BrandCard = () => {
       <div className="flex justify-center flex-wrap gap-4">
         {brandsCard.map((item) => (
           <Link
+            key={item.id}
             className="hover:animate-pulse w-40 h-40 mx-6"
             href={`./brand/:${item.id}`}
           >
@@ -24,7 +25,7 @@ const BrandCard = () => {
       </div>
       <div className="flex justify-center mt-4">
         <Link
-          href={"/"}
+          href={"./brands"}
           className=" p-2 hover:opacity-85 hover:text-slate-200 bg-accent text-base text-white rounded-lg"
         >
           See More

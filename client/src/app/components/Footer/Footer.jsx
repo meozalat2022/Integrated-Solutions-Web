@@ -28,7 +28,7 @@ const Footer = () => {
           <div className=" w-1/2">
             <div className=" flex flex-col gap-4 items-center">
               {categoryList.map((item) => (
-                <ul>
+                <ul key={item.id}>
                   <li>
                     <Link
                       className="text-white hover:underline hover:text-blue-800"
@@ -49,7 +49,7 @@ const Footer = () => {
           <div className="w-1/2 ">
             <div className="gap-4 flex flex-col items-center">
               {brandList.map((item) => (
-                <ul>
+                <ul key={item.id}>
                   <Link
                     className="text-white hover:underline hover:text-blue-800"
                     href={"/"}

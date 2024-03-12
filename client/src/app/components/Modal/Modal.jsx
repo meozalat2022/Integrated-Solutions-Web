@@ -29,7 +29,7 @@ const Modal = (props) => {
               </div>
             </div>
             {CATEGORY.map((item) => (
-              <div className="flex flex-col py-2 ml-4">
+              <div key={item.id} className="flex flex-col py-2 ml-4">
                 <Link className="hover:text-primary hover:underline" href={"/"}>
                   {item.title}
                 </Link>

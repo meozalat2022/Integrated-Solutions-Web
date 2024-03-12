@@ -1,14 +1,12 @@
-"use client";
 import React from "react";
 import { CATEGORY } from "@/data/products";
-import Image from "next/image";
 import Link from "next/link";
-const CategoryCard = () => {
-  const categoryItems = CATEGORY.slice(0, 5);
+import Image from "next/image";
+const Categories = () => {
   return (
-    <div>
-      <div className="flex items-center justify-center gap-4 flex-wrap md:flex-nowrap">
-        {categoryItems.map((item) => (
+    <div className="flex flex-wrap gap-6 w-full justify-center mt-6 m-auto">
+      {CATEGORY &&
+        CATEGORY.map((item) => (
           <Link
             key={item.id}
             href={`./productByCategory/:${item.id}`}
@@ -27,17 +25,8 @@ const CategoryCard = () => {
             <h1 className="pt-6">{item.title}</h1>
           </Link>
         ))}
-      </div>
-      <div className="flex justify-center mt-4">
-        <Link
-          href={"./categories"}
-          className=" p-2 hover:opacity-85 hover:text-slate-200 bg-accent text-base text-white rounded-lg"
-        >
-          See More
-        </Link>
-      </div>
     </div>
   );
 };
 
-export default CategoryCard;
+export default Categories;

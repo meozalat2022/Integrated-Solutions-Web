@@ -17,6 +17,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="h-screen bg-slate-100">
+        <Modal />
         <Providers>
           <ToastContainer
             position="top-right"
@@ -34,7 +35,6 @@ export default function RootLayout({ children }) {
           <Header />
           {children}
           <Footer />
-          <Modal />
         </Providers>
       </body>
     </html>
