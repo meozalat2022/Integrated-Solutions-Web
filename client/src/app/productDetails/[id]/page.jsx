@@ -11,7 +11,6 @@ const ProductDetails = ({ params }) => {
   const similarProducts = PRODUCTS.filter(
     (item) => item.categoryId === foundProduct.categoryId
   ).slice(0, 6);
-  console.log(similarProducts);
   return (
     <div className="m-6">
       <div className="flex gap-4 justify-between">
