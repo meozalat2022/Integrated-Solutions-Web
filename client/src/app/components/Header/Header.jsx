@@ -179,11 +179,11 @@ const Header = () => {
         </form>
         {/* authentication */}
         <div className="md:flex gap-2 text-white hidden">
-          <Link className="hover:text-slate-700" href={"./login"}>
+          <Link className="hover:text-slate-700" href={"/login"}>
             Login
           </Link>
           <p>/</p>
-          <Link className="hover:text-slate-700" href={"./signUp"}>
+          <Link className="hover:text-slate-700" href={"/signUp"}>
             Register
           </Link>
           <div className="flex gap-4 pl-10">
