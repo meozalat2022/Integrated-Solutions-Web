@@ -2,6 +2,7 @@ import React from "react";
 import { CATEGORY } from "@/data/products";
 import { BRAND } from "@/data/products";
 import Link from "next/link";
+import SocialMedia from "../SocialMedia/page";
 
 const Footer = () => {
   const categoryList = CATEGORY.slice(0, 5);
@@ -69,7 +70,9 @@ const Footer = () => {
         </div>
         {/* social media */}
 
-        <div>Social Media</div>
+        <div className="flex gap-6 justify-center items-center m-auto">
+          <SocialMedia />
+        </div>
       </div>
     </div>
   );
