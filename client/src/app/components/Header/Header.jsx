@@ -49,7 +49,7 @@ const Header = () => {
     if (currentUser) {
       setAuthUser(true);
     }
-  }, []);
+  }, [currentUser]);
 
   const handleSignout = async () => {
     try {
@@ -64,6 +64,7 @@ const Header = () => {
       toast.success("Successfully Sign Out", {
         hideProgressBar: false,
       });
+      setAuthUser(false);
       router.push("./login");
     } catch (error) {
       dispatch(signoutFailure(error.message));
@@ -121,7 +122,7 @@ const Header = () => {
           )}
           <div className="flex gap-2 text-white md:hidden ml-16 justify-center">
             <Link className="hover:text-slate-700" href={"./login"}>
-              Login
+              Login user
             </Link>
             <p>/</p>
             <Link className="hover:text-slate-700" href={"./signUp"}>
@@ -179,13 +180,25 @@ const Header = () => {
         </form>
         {/* authentication */}
         <div className="md:flex gap-2 text-white hidden">
-          <Link className="hover:text-slate-700" href={"/login"}>
-            Login
-          </Link>
-          <p>/</p>
-          <Link className="hover:text-slate-700" href={"/signUp"}>
-            Register
-          </Link>
+          {!authUser ? (
+            <div className="flex gap-2">
+              <Link className="hover:text-slate-700" href={"/login"}>
+                Login
+              </Link>
+              <p>/</p>
+              <Link className="hover:text-slate-700" href={"/signUp"}>
+                Register
+              </Link>
+            </div>
+          ) : (
+            <div className="flex gap-2">
+              <Link href={"/account"}>My Account</Link>
+              <p>/</p>
+              <p onClick={handleSignout} className="cursor-pointer">
+                Signout
+              </p>
+            </div>
+          )}
           <div className="flex gap-4 pl-10">
             <Link
               href={"./cart"}

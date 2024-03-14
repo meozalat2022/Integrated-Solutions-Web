@@ -28,9 +28,9 @@ const CartItem = ({ id, title, price, imageUrl, promotionRate }) => {
         </div>
       </div>
       <div>
-        <p>total price</p>
+        <p className="text-primary font-semibold">$total price</p>
       </div>
-      <div>
+      <div className="cursor-pointer hover:text-primary">
         <FaRegTrashAlt />
       </div>
     </div>

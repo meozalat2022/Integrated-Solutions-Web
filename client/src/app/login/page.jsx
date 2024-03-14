@@ -20,7 +20,6 @@ const Login = () => {
     email: "",
     password: "",
   });
-  console.log(currentUser);
   const handleOnchange = (e) => {
     const { name, value } = e.target;
     setData((prev) => {
