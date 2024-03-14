@@ -32,14 +32,17 @@ const Footer = () => {
                   <li>
                     <Link
                       className="text-white hover:underline hover:text-blue-800"
-                      href={"/"}
+                      href={`/productByCategory/:${item.id}`}
                     >
                       {item.title}
                     </Link>
                   </li>
                 </ul>
               ))}
-              <Link className="hover:underline text-slate-600" href={"/"}>
+              <Link
+                className="hover:underline text-slate-600"
+                href={"/categories"}
+              >
                 See More
               </Link>
             </div>
@@ -52,13 +55,13 @@ const Footer = () => {
                 <ul key={item.id}>
                   <Link
                     className="text-white hover:underline hover:text-blue-800"
-                    href={"/"}
+                    href={`/productByBrand/:${item.id}`}
                   >
                     {item.title}
                   </Link>
                 </ul>
               ))}
-              <Link className="hover:underline text-slate-600" href={"/"}>
+              <Link className="hover:underline text-slate-600" href={"/brands"}>
                 See More
               </Link>
             </div>
