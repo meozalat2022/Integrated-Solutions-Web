@@ -19,7 +19,7 @@ const NavBarLinks = () => {
     { name: "Contact Us", link: "/contactus" },
   ];
   return (
-    <div className="flex gap-8 text-white font-bold">
+    <div className="flex gap-8 text-white font-bold z-50">
       {links.map((item, index) => (
         <div key={index}>
           <div className="group">
@@ -33,7 +33,7 @@ const NavBarLinks = () => {
             </li>
             {item.sublink && (
               <div className="absolute pt-2 hidden group-hover:block hover:block">
-                <div className=" rounded-md bg-white px-6 z-50">
+                <div className=" rounded-md bg-white px-6 ">
                   <div>
                     {item.sublink.map((sub, index) => (
                       <div key={index} className="p-2">

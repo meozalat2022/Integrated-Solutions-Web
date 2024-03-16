@@ -19,9 +19,9 @@ const HomeSwiper = () => {
         offers.length > 0 &&
         offers.map((item) => (
           <SwiperSlide key={item.imageUrl}>
-            <div className="md:h-[500px] h-[250px]">
+            <div className="md:h-[500px] h-[250px] ">
               <Image
-                className="z-0"
+                className=""
                 alt={item.title}
                 src={item.imageUrl}
                 layout="fill"

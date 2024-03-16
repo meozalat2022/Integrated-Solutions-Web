@@ -20,9 +20,9 @@ const Index = () => {
   const productsList = PRODUCTS.slice(0, 5);
   return (
     <div className="flex m-auto rounded-md flex-col">
-      <div className="flex flex-col w-full items-center bg-red-50 pb-4 -z-10">
+      <div className="flex flex-col w-full items-center bg-red-50 pb-4 ">
         {/* promotion swiper */}
-        <div className=" mt-10 w-3/4">
+        <div className=" mt-10 w-3/4 ">
           <HomeSwiper />
         </div>
       </div>
