@@ -1,12 +1,42 @@
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
 import { BRAND } from "@/data/products";
 import Link from "next/link";
 import Image from "next/image";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  getAllBrandsFailure,
+  getAllBrandsStart,
+  getAllBrandsSuccess,
+} from "@/redux/brand/brandSlice";
 const Brands = () => {
+  const { error, loading, allBrands } = useSelector((state) => state.brand);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const fetchAllBrands = async () => {
+      try {
+        dispatch(getAllBrandsStart());
+
+        const allBrands = await fetch("http://localhost:8080/brand/brands");
+
+        const data = await allBrands.json();
+
+        if (data.success === false) {
+          dispatch(getAllBrandsFailure(data));
+          return;
+        }
+
+        dispatch(getAllBrandsSuccess(data));
+      } catch (error) {
+        dispatch(getAllBrandsFailure(error.message));
+      }
+    };
+    fetchAllBrands();
+  }, []);
   return (
     <div className="flex flex-wrap gap-6 w-full justify-center mt-6 m-auto">
-      {BRAND &&
-        BRAND.map((item) => (
+      {allBrands &&
+        allBrands.map((item) => (
           <Link
             key={item.id}
             href={`./productByCategory/:${item.id}`}
