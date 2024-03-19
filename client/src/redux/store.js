@@ -4,10 +4,13 @@ import storage from "redux-persist/lib/storage";
 import userReducer from "./user/userSlice";
 import categoryReducer from "./category/categorySlice";
 import brandReducer from "./brand/brandSlice";
+import productReducer from "./product/productSlice";
 
 const rootReducer = combineReducers({
   user: userReducer,
   brand: brandReducer,
+  category: categoryReducer,
+  product: productReducer,
 });
 
 const persistConfig = {

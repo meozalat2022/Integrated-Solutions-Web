@@ -2,9 +2,10 @@ import React from "react";
 import { BRAND } from "@/data/products";
 import Link from "next/link";
 import Image from "next/image";
-
+import { useSelector } from "react-redux";
 const BrandCard = () => {
-  const brandsCard = BRAND.slice(0, 5);
+  const { error, loading, allBrands } = useSelector((state) => state.brand);
+  const brandsCard = allBrands.slice(0, 5);
   return (
     <div className="mt-8">
       <div className="flex justify-center flex-wrap gap-4">

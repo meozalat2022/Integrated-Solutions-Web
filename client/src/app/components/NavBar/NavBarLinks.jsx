@@ -14,8 +14,8 @@ const NavBarLinks = () => {
         { name: "Brand 4", link: "/productByBrand/:b4" },
       ],
     },
-    { name: "New Arrival", link: "/sortedProducts/:createdAt" },
-    { name: "Best Deals", link: "/sortedProducts/:promotionRate" },
+    { name: "New Arrival", link: "/latestProducts" },
+    { name: "Best Deals", link: "/bestDeals" },
     { name: "Contact Us", link: "/contactus" },
   ];
   return (

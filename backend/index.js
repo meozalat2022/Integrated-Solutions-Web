@@ -7,6 +7,7 @@ import userRouter from "./routes/user.js";
 // import productRouter from "./routes/product.js";
 import categoriesRouter from "./routes/categories.js";
 import brandsRouter from "./routes/brands.js";
+import productsRouter from "./routes/product.js";
 
 const app = express();
 app.use(cors());
@@ -36,6 +37,7 @@ app.use("/user", userRouter);
 // app.use("/product", productRouter);
 app.use("/category", categoriesRouter);
 app.use("/brand", brandsRouter);
+app.use("/products", productsRouter);
 
 //error handling middleware
 
