@@ -1,6 +1,7 @@
 import Product from "../models/product.js";
 import Category from "../models/category.js";
 import Brand from "../models/brand.js";
+import { errorHandler } from "../utils/error.js";
 export const addProduct = async (req, res, next) => {
   // const { categoryId, brandId } = req.body;
   try {
@@ -67,8 +68,20 @@ export const getProductByBrand = async (req, res, next) => {
 
   try {
     const productsList = await Product.find({ brandId: id });
-    console.log(productsList);
     return res.status(201).json(productsList);
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const getSingleProduct = async (req, res, next) => {
+  try {
+    const product = await Product.findById(req.params.id);
+    console.log(product);
+    if (!product) {
+      return next(errorHandler(404, "Product Not found"));
+    }
+    res.status(200).json(product);
   } catch (error) {
     next(error);
   }
