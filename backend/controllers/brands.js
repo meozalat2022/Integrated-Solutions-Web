@@ -7,3 +7,13 @@ export const getAllBrands = async (req, res, next) => {
     next(error);
   }
 };
+
+export const addBrand = async (req, res, next) => {
+  console.log(req.body);
+  try {
+    const brands = await Brand.create(req.body);
+    return res.status(201).json(brands);
+  } catch (error) {
+    next(error);
+  }
+};

@@ -5,13 +5,13 @@ const NavBarLinks = () => {
   const links = [
     {
       name: "Brands",
-      link: "./brands",
+      link: "#",
       submenu: true,
       sublink: [
-        { name: "Brand 1", link: "/productByBrand/:b1" },
-        { name: "Brand 2", link: "/productByBrand/:b2" },
-        { name: "Brand 3", link: "/productByBrand/:b3" },
-        { name: "Brand 4", link: "/productByBrand/:b4" },
+        { name: "Brand 1", link: "/productByBrand/:65fca388a1c55b90ae63d2e8" },
+        { name: "Brand 2", link: "/productByBrand/:65fca3c3a1c55b90ae63d2ea" },
+        { name: "Brand 3", link: "/productByBrand/:65fca3d2a1c55b90ae63d2ec" },
+        { name: "Brand 4", link: "/productByBrand/:65fca3e9a1c55b90ae63d2ee" },
       ],
     },
     { name: "New Arrival", link: "/latestProducts" },

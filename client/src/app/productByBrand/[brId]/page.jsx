@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { PRODUCTS, BRAND } from "@/data/products";
 import ProductCard from "@/app/components/ProductCard/page";
 import Select from "react-select";
-const productsByBrand = ({ params }) => {
+const ProductsByBrand = ({ params }) => {
   const [selectedOption, setSelectedOption] = useState("");
 
   const options = [
@@ -15,22 +15,51 @@ const productsByBrand = ({ params }) => {
     { value: "nameZ", label: "name Z to A" },
   ];
 
-  const brandId = params.brId.slice(-1);
+  const brId = params.brId;
+  console.log(brId);
 
-  const list = PRODUCTS.filter((item) => item.categoryId === brandId);
+  const [productsList, setProductsList] = useState([]);
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  //   let brands = [];
-  //   for (let i in list) {
-  //     const foundBrands = BRAND.filter((item) => item.id === list[i].brandId);
-  //     for (let j in foundBrands) {
-  //       brands.push(foundBrands[j]);
-  //     }
-  //   }
-  //   const uniqArr = [...new Set(brands)];
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        setLoading(true);
+        const res = await fetch(
+          `http://localhost:8080/products/productsByBrand/:${brId}`
+        );
+        const data = await res.json();
+        if (data.success === false) {
+          setError(true);
+          setLoading(false);
+          return;
+        }
+        setProductsList(data);
+        setError(false);
+        setLoading(false);
+      } catch (error) {
+        setError(error.message);
+        setLoading(false);
+      }
+    };
+    fetchProducts();
+  }, [brId]);
+
+  let brands = [];
+  for (let i in productsList) {
+    const foundBrands = BRAND.filter(
+      (item) => item.id === productsList[i].brandId
+    );
+    for (let j in foundBrands) {
+      brands.push(foundBrands[j]);
+    }
+  }
+  const uniqArr = [...new Set(brands)];
 
   return (
     <div className="flex gap-6 w-full justify-center my-4">
-      {/* <div className="border border-solid border-slate-300 w-64 m-6 hidden lg:flex flex-col">
+      <div className="border border-solid border-slate-300 w-64 m-6 hidden lg:flex flex-col">
         <h2 className="text-center mt-2">Filter by</h2>
         <div className="mt-4 ml-8">
           {uniqArr.map((br) => (
@@ -40,7 +69,7 @@ const productsByBrand = ({ params }) => {
             </div>
           ))}
         </div>
-      </div> */}
+      </div>
 
       <div className=" ml-8">
         <div className="flex flex-col">
@@ -59,14 +88,14 @@ const productsByBrand = ({ params }) => {
             />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 mr-10 items-center">
-            {list &&
-              list.map((item) => (
+            {productsList &&
+              productsList.map((item) => (
                 <div className="flex">
                   <ProductCard
-                    key={item.id}
-                    id={item.id}
+                    key={item._id}
+                    id={item._id}
                     title={item.title}
-                    imageUrl={item.imageUrl}
+                    imageUrl={item.imageUrl[0]}
                     price={item.price}
                   />
                 </div>
@@ -78,4 +107,4 @@ const productsByBrand = ({ params }) => {
   );
 };
 
-export default productsByBrand;
+export default ProductsByBrand;

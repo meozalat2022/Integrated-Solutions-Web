@@ -1,12 +1,15 @@
+"use client";
 import React from "react";
 import { CATEGORY } from "@/data/products";
 import { BRAND } from "@/data/products";
 import Link from "next/link";
 import SocialMedia from "../SocialMedia/page";
-
+import { useSelector } from "react-redux";
 const Footer = () => {
-  const categoryList = CATEGORY.slice(0, 5);
-  const brandList = BRAND.slice(0, 5);
+  const categoryList = useSelector(
+    (state) => state.category.allCategories
+  ).slice(0, 5);
+  const brandList = useSelector((state) => state.brand.allBrands).slice(0, 5);
   return (
     <div className="hidden md:flex mt-2 md:h-[250px] bg-accent rounded-t-md">
       <div className="flex justify-between w-full m-4">
@@ -29,11 +32,11 @@ const Footer = () => {
           <div className=" w-1/2">
             <div className=" flex flex-col gap-4 items-center">
               {categoryList.map((item) => (
-                <ul key={item.id}>
+                <ul key={item._id}>
                   <li>
                     <Link
                       className="text-white hover:underline hover:text-blue-800"
-                      href={`/productByCategory/:${item.id}`}
+                      href={`/productByCategory/:${item._id}`}
                     >
                       {item.title}
                     </Link>
@@ -53,10 +56,10 @@ const Footer = () => {
           <div className="w-1/2 ">
             <div className="gap-4 flex flex-col items-center">
               {brandList.map((item) => (
-                <ul key={item.id}>
+                <ul key={item._id}>
                   <Link
                     className="text-white hover:underline hover:text-blue-800"
-                    href={`/productByBrand/:${item.id}`}
+                    href={`/productByBrand/:${item._id}`}
                   >
                     {item.title}
                   </Link>

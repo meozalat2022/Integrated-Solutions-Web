@@ -14,20 +14,20 @@ const AddProduct = () => {
   const [brandSelectedOption, setBrandSelectedOption] = useState(null);
 
   const categoryOptions = [
-    { value: "65f381d9b88fa78e4b2c4005", label: "category1" },
-    { value: "65f381d9b88fa78e4b2c4006", label: "category2" },
-    { value: "65f381d9b88fa78e4b2c4007", label: "category3" },
-    { value: "65f381d9b88fa78e4b2c4008", label: "category4" },
-    { value: "65f381d9b88fa78e4b2c4009", label: "category5" },
-    { value: "65f381d9b88fa78e4b2c400a", label: "category6" },
-    { value: "65f381d9b88fa78e4b2c400b", label: "category7" },
-    { value: "65f381d9b88fa78e4b2c400c", label: "category8" },
+    { value: "65fca4b0a1c55b90ae63d2f0", label: "category1" },
+    { value: "65fca4cba1c55b90ae63d2f2", label: "category2" },
+    { value: "65fca502a1c55b90ae63d2f4", label: "category3" },
+    { value: "65fca511a1c55b90ae63d2f6", label: "category4" },
+    { value: "65fca51fa1c55b90ae63d2f8", label: "category5" },
+    { value: "65fca52da1c55b90ae63d2fa", label: "category6" },
+    { value: "65fca531a1c55b90ae63d2fc", label: "category7" },
+    { value: "65fca534a1c55b90ae63d2fe", label: "category8" },
   ];
   const brandOptions = [
-    { value: "65f381e8b88fa78e4b2c400e", label: "brand1" },
-    { value: "65f381e8b88fa78e4b2c400f", label: "brand2" },
-    { value: "65f381e8b88fa78e4b2c4010", label: "brand3" },
-    { value: "65f381e8b88fa78e4b2c4011", label: "brand4" },
+    { value: "65fca388a1c55b90ae63d2e8", label: "brand1" },
+    { value: "65fca3c3a1c55b90ae63d2ea", label: "brand2" },
+    { value: "65fca3d2a1c55b90ae63d2ec", label: "brand3" },
+    { value: "65fca3e9a1c55b90ae63d2ee", label: "brand4" },
   ];
 
   const handleSubmit = async (e) => {

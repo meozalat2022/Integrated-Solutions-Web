@@ -12,9 +12,11 @@ import { MdEdit } from "react-icons/md";
 import { PRODUCTS } from "@/data/products";
 import OrderItem from "../components/OrderItem/page";
 import Image from "next/image";
+import Link from "next/link";
 
 const Account = () => {
   const { error, loading, currentUser } = useSelector((state) => state.user);
+  const hotOffers = useSelector((state) => state.product.bestDeals).slice(0, 5);
   const [openOrder, setOpenOrder] = useState(false);
   const [openPersonalInfo, setOpenPersonalInfo] = useState(false);
   const [openAddresses, setOpenAddresses] = useState(false);
@@ -34,10 +36,9 @@ const Account = () => {
     setOpenWishList((prev) => !prev);
   };
 
-  const sortedProducts = PRODUCTS.sort(function (a, b) {
-    return b.promotionRate - a.promotionRate;
-  });
-  const hotOffers = sortedProducts.slice(0, 5);
+  // const sortedProducts = PRODUCTS.sort(function (a, b) {
+  //   return b.promotionRate - a.promotionRate;
+  // });
   return (
     <div className="p-6 flex gap-2">
       <div className="w-1/3 px-4 border h-full py-4 rounded-sm">
@@ -48,9 +49,12 @@ const Account = () => {
         </div>
         <div className=" flex flex-col py-4 gap-2 ">
           {hotOffers.map((item) => (
-            <div className="flex justify-between items-center border p-2 rounded-md mb-2">
+            <Link
+              href={`/productDetails/:${item._id}`}
+              className="flex justify-between items-center border p-2 rounded-md mb-2"
+            >
               <Image
-                src={item.imageUrl}
+                src={item.imageUrl[0]}
                 width={75}
                 height={75}
                 alt={item.title}
@@ -59,7 +63,7 @@ const Account = () => {
               <p className="text-primary font-semibold">
                 {item.promotionRate}%
               </p>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

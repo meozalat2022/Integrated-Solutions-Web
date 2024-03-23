@@ -2,7 +2,9 @@
 import { useSearchParams, usePathname } from "next/navigation";
 import Link from "next/link";
 import { CATEGORY } from "@/data/products";
+import { useSelector } from "react-redux";
 const Modal = (props) => {
+  const categories = useSelector((state) => state.category.allCategories);
   const searchParams = useSearchParams();
   const modal = searchParams.get("modal");
   const pathname = usePathname();
@@ -28,9 +30,12 @@ const Modal = (props) => {
                 <div class="flex-grow border-t border-slat-900 mx-4"></div>
               </div>
             </div>
-            {CATEGORY.map((item) => (
-              <div key={item.id} className="flex flex-col py-2 ml-4">
-                <Link className="hover:text-primary hover:underline" href={"/"}>
+            {categories.map((item) => (
+              <div key={item._id} className="flex flex-col py-2 ml-4">
+                <Link
+                  className="hover:text-primary hover:underline"
+                  href={`/productByCategory/:${item._id}`}
+                >
                   {item.title}
                 </Link>
               </div>

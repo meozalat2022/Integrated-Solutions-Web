@@ -17,8 +17,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="h-screen bg-slate-100">
-        <Modal />
         <Providers>
+          <Modal />
           <ToastContainer
             position="top-right"
             autoClose={5000}

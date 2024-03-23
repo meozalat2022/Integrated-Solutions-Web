@@ -39,11 +39,12 @@ const Index = () => {
     slideRef.current.scrollLeft += 200;
   };
 
-  const bestDeals = []
+  const bestDeals = useSelector((state) => state.product.bestDeals).slice(0, 5);
 
-  const latestProducts = []
+  const latestProducts = useSelector(
+    (state) => state.product.latestProducts
+  ).slice(0, 5);
 
-  
   return (
     <div className="flex m-auto rounded-md flex-col">
       <div className="flex flex-col w-full items-center bg-red-50 pb-4 ">
@@ -74,7 +75,7 @@ const Index = () => {
         </div>
         <div className="flex justify-center mt-4">
           <Link
-            href={"/"}
+            href={"/bestDeals"}
             className=" p-2 hover:opacity-85 hover:text-slate-200 bg-accent text-base text-white rounded-lg"
           >
             See More
@@ -99,7 +100,7 @@ const Index = () => {
         </div>
         <div className="flex justify-center mt-4">
           <Link
-            href={"/"}
+            href={"/latestProducts"}
             className=" p-2 hover:opacity-85 hover:text-slate-200 bg-accent text-base text-white rounded-lg"
           >
             See More

@@ -11,9 +11,9 @@ const BrandCard = () => {
       <div className="flex justify-center flex-wrap gap-4">
         {brandsCard.map((item) => (
           <Link
-            key={item.id}
+            key={item._id}
             className="hover:animate-pulse w-40 h-40 mx-6"
-            href={`./brand/:${item.id}`}
+            href={`./productByBrand/:${item._id}`}
           >
             <Image
               src={item.imageUrl}

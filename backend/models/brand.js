@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import Schema from "mongoose";
 const brandSchema = new mongoose.Schema({
   title: {
     type: String,
@@ -8,6 +9,12 @@ const brandSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  // products: [
+  //   {
+  //     type: Schema.Types.ObjectId,
+  //     ref: "Product",
+  //   },
+  // ],
 });
 
 const Brand = mongoose.model("Brand", brandSchema);

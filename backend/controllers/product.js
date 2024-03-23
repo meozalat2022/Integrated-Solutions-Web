@@ -1,9 +1,17 @@
 import Product from "../models/product.js";
-
+import Category from "../models/category.js";
+import Brand from "../models/brand.js";
 export const addProduct = async (req, res, next) => {
+  // const { categoryId, brandId } = req.body;
   try {
-    const products = await Product.create(req.body);
-    return res.status(201).json(products);
+    const addedProduct = await Product.create(req.body);
+    // const foundCategory = await Category.findById(categoryId);
+    // foundCategory.products.push(addedProduct);
+    // await foundCategory.save();
+    // const foundBrand = await Brand.findById(brandId);
+    // foundBrand.products.push(addedProduct);
+    // await foundBrand.save();
+    return res.status(201).json(addedProduct);
   } catch (error) {
     next(error);
   }
@@ -42,10 +50,25 @@ export const getLatestProducts = async (req, res, next) => {
 
 export const getProductByCategory = async (req, res, next) => {
   const catId = req.params.catId;
+  const id = catId.slice(2);
   try {
-    const productsList = await Product.find({ categoryId: catId });
-    console.log(productsList);
+    const productsList = await Product.find({
+      categoryId: id,
+    });
     return res.status(200).json(productsList);
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const getProductByBrand = async (req, res, next) => {
+  const brId = req.params.brId;
+  const id = brId.slice(2);
+
+  try {
+    const productsList = await Product.find({ brandId: id });
+    console.log(productsList);
+    return res.status(201).json(productsList);
   } catch (error) {
     next(error);
   }
