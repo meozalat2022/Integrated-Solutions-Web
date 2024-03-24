@@ -121,11 +121,11 @@ const Header = () => {
             </div>
           )}
           <div className="flex gap-2 text-white md:hidden ml-16 justify-center">
-            <Link className="hover:text-slate-700" href={"./login"}>
+            <Link className="hover:text-slate-700" href={"/login"}>
               Login user
             </Link>
             <p>/</p>
-            <Link className="hover:text-slate-700" href={"./signUp"}>
+            <Link className="hover:text-slate-700" href={"/signUp"}>
               Register
             </Link>
             <div className="flex gap-4 pl-10">
@@ -141,7 +141,7 @@ const Header = () => {
               <div>
                 <Link
                   className="text-2xl cursor-pointer relative text-white hover:opacity-85"
-                  href={"./favorite"}
+                  href={"/favorite"}
                 >
                   <FaHeart />
                   <div className="absolute -top-1 -right-1 text-white bg-accent text-xs p-0 m-0 w-4 rounded-lg text-center">
@@ -201,7 +201,7 @@ const Header = () => {
           )}
           <div className="flex gap-4 pl-10">
             <Link
-              href={"./cart"}
+              href={"/cart"}
               className="text-2xl cursor-pointer relative text-white hover:opacity-85"
             >
               <BsCartFill />
@@ -212,7 +212,7 @@ const Header = () => {
             <div>
               <Link
                 className="text-2xl cursor-pointer relative text-white hover:opacity-85"
-                href={"./favorite"}
+                href={"/favorite"}
               >
                 <FaHeart />
                 <div className="absolute -top-1 -right-1 text-white bg-accent text-xs p-0 m-0 w-4 rounded-lg text-center">
