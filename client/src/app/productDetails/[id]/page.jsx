@@ -5,14 +5,16 @@ import Image from "next/image";
 import { BsArrowUpSquare, BsArrowDownSquare } from "react-icons/bs";
 import { FaRegHeart } from "react-icons/fa";
 import ProductCard from "@/app/components/ProductCard/page";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { addToCart } from "@/redux/cart/cartSlice";
 const ProductDetails = ({ params }) => {
   const [product, setProduct] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [quantity, setQuantity] = useState(1);
   const productId = params.id.slice(3);
   // const foundProduct = PRODUCTS.find((item) => item.id === productId);
-
+  const dispatch = useDispatch();
   const allProduct = useSelector((state) => state.product.allProducts);
   let similarProducts = [];
 
@@ -45,7 +47,6 @@ const ProductDetails = ({ params }) => {
     fetChProduct();
   }, [productId]);
 
-  console.log(product);
   return (
     <div className="m-6">
       <div className="flex gap-4 justify-between">
@@ -92,22 +93,40 @@ const ProductDetails = ({ params }) => {
             <div className="flex py-1 w-24 h-full ">
               <div className="border w-full h-full border-solid border-slate-400">
                 <input
-                  min={1}
-                  defaultValue={1}
+                  value={quantity}
                   className="w-full h-full text-center text-xl"
                   type="number"
                 />
               </div>
               <div className="flex flex-col  items-center justify-center">
                 <BsArrowUpSquare
+                  onClick={() => setQuantity(quantity + 1)}
                   size={26}
                   className="bg-white text-slate-700"
                 />
-                <BsArrowDownSquare size={26} className="bg-white " />
+                <BsArrowDownSquare
+                  onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                  size={26}
+                  className="bg-white "
+                />
               </div>
             </div>
             <div className="w-full h-full">
-              <button className="hover:bg-black ease-in-out duration-200 delay-100 bg-primary py-4 px-8 rounded-md text-center capitalize text-white">
+              <button
+                onClick={() =>
+                  dispatch(
+                    addToCart({
+                      productId: product._id,
+                      title: product.title,
+                      price: product.price,
+                      promotionRate: product.promotionRate,
+                      imageUrl: product.imageUrl[0],
+                      quantity: quantity,
+                    })
+                  )
+                }
+                className="hover:bg-black ease-in-out duration-200 delay-100 bg-primary py-4 px-8 rounded-md text-center capitalize text-white"
+              >
                 Add to Cart
               </button>
             </div>

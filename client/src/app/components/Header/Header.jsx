@@ -130,7 +130,7 @@ const Header = () => {
             </Link>
             <div className="flex gap-4 pl-10">
               <Link
-                href={"./cart"}
+                href={"/cart"}
                 className="text-2xl cursor-pointer relative text-white hover:opacity-85"
               >
                 <BsCartFill />

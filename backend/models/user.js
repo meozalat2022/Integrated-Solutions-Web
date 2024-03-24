@@ -14,9 +14,14 @@ const userSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
-  imageUrl: {
-    type: String,
-  },
+  address: [
+    {
+      name: { type: String, default: "" },
+      address: { type: String, default: "" },
+      city: { type: String, default: "" },
+      state: { type: String, default: "" },
+    },
+  ],
   password: {
     type: String,
     required: true,
