@@ -7,6 +7,8 @@ import { FaRegHeart } from "react-icons/fa";
 import ProductCard from "@/app/components/ProductCard/page";
 import { useSelector, useDispatch } from "react-redux";
 import { addToCart } from "@/redux/cart/cartSlice";
+import { toast } from "react-toastify";
+
 const ProductDetails = ({ params }) => {
   const [product, setProduct] = useState(null);
   const [error, setError] = useState(null);
@@ -16,6 +18,7 @@ const ProductDetails = ({ params }) => {
   // const foundProduct = PRODUCTS.find((item) => item.id === productId);
   const dispatch = useDispatch();
   const allProduct = useSelector((state) => state.product.allProducts);
+  const { currentUser } = useSelector((state) => state.user);
   let similarProducts = [];
 
   if (product) {
@@ -113,18 +116,22 @@ const ProductDetails = ({ params }) => {
             </div>
             <div className="w-full h-full">
               <button
-                onClick={() =>
-                  dispatch(
-                    addToCart({
-                      productId: product._id,
-                      title: product.title,
-                      price: product.price,
-                      promotionRate: product.promotionRate,
-                      imageUrl: product.imageUrl[0],
-                      quantity: quantity,
-                    })
-                  )
-                }
+                onClick={() => {
+                  !currentUser
+                    ? toast.success("You Need to Login First", {
+                        hideProgressBar: false,
+                      })
+                    : dispatch(
+                        addToCart({
+                          productId: product._id,
+                          title: product.title,
+                          price: product.price,
+                          promotionRate: product.promotionRate,
+                          imageUrl: product.imageUrl[0],
+                          quantity: quantity,
+                        })
+                      );
+                }}
                 className="hover:bg-black ease-in-out duration-200 delay-100 bg-primary py-4 px-8 rounded-md text-center capitalize text-white"
               >
                 Add to Cart
@@ -151,6 +158,7 @@ const ProductDetails = ({ params }) => {
                   title={item.title}
                   imageUrl={item.imageUrl[0]}
                   price={item.price}
+                  promotionRate={item.promotionRate}
                   // description={item.description}
                 />
               </div>

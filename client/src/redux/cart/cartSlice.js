@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 
 const initialState = [];
 
@@ -11,6 +12,9 @@ const cartSlice = createSlice({
         action.payload;
       const find = state.find((item) => item.productId === productId);
       if (find) {
+        toast.success("Product Added Successfully", {
+          hideProgressBar: false,
+        });
         return state.map((item) =>
           item.productId === productId
             ? { ...item, quantity: item.quantity + quantity }
@@ -19,6 +23,9 @@ const cartSlice = createSlice({
       } else {
         state.push({
           ...action.payload,
+        });
+        toast.success("Product Added Successfully", {
+          hideProgressBar: false,
         });
       }
     },

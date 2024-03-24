@@ -1,9 +1,14 @@
+"use client";
 import React from "react";
-import { PRODUCTS } from "@/data/products";
 import Link from "next/link";
 import Image from "next/image";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "@/redux/cart/cartSlice";
+import { toast } from "react-toastify";
 
-const ProductCard = ({ id, imageUrl, title, price, key }) => {
+const ProductCard = ({ id, imageUrl, title, price, key, promotionRate }) => {
+  const { currentUser } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
   return (
     <div key={key}>
       <div className="flex flex-col gap-1">
@@ -26,10 +31,28 @@ const ProductCard = ({ id, imageUrl, title, price, key }) => {
           <p className="bg-white text-center text-base font-semibold">
             {title}
           </p>
-          <button className="bg-accent p-4 w-full rounded-b-lg text-white text-center -text-base font-semibold">
-            Add To Cart
-          </button>
         </Link>
+        <button
+          onClick={() => {
+            !currentUser
+              ? toast.success("You Need to Login First", {
+                  hideProgressBar: false,
+                })
+              : dispatch(
+                  addToCart({
+                    productId: id,
+                    title: title,
+                    price: price,
+                    promotionRate: promotionRate,
+                    imageUrl: imageUrl,
+                    quantity: 1,
+                  })
+                );
+          }}
+          className="bg-accent p-4 w-full rounded-b-lg text-white text-center -text-base font-semibold hover:bg-black"
+        >
+          Add To Cart
+        </button>
       </div>
     </div>
   );

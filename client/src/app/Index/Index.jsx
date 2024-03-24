@@ -69,6 +69,7 @@ const Index = () => {
               title={item.title}
               imageUrl={item.imageUrl[0]}
               price={item.price}
+              promotionRate={item.promotionRate}
               // description={item.description}
             />
           ))}
@@ -94,6 +95,7 @@ const Index = () => {
               title={item.title}
               imageUrl={item.imageUrl[0]}
               price={item.price}
+              promotionRate={item.promotionRate}
               // description={item.description}
             />
           ))}

@@ -33,7 +33,7 @@ const Header = () => {
   const [selectedLanguage, setSelectedLanguage] = useState("english");
   const [selectedCurrency, setSelectedCurrency] = useState("usd");
   const { error, loading, currentUser } = useSelector((state) => state.user);
-
+  const cartProduct = useSelector((state) => state.cart);
   const handleShowMenu = () => {
     setShowMenu((prev) => !prev);
   };
@@ -135,7 +135,7 @@ const Header = () => {
               >
                 <BsCartFill />
                 <div className="absolute -top-1 -right-1 text-white bg-accent text-xs p-0 m-0 w-4 rounded-lg text-center">
-                  12
+                  {cartProduct && cartProduct.length}
                 </div>
               </Link>
               <div>
@@ -206,7 +206,7 @@ const Header = () => {
             >
               <BsCartFill />
               <div className="absolute -top-1 -right-1 text-white bg-accent text-xs p-0 m-0 w-4 rounded-lg text-center">
-                12
+                {cartProduct && cartProduct.length}
               </div>
             </Link>
             <div>

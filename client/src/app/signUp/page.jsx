@@ -1,10 +1,10 @@
 "use client";
 import React, { useState } from "react";
-import signUpImage from "../../assets/login-animation.gif";
-import Image from "next/image";
+// import signUpImage from "../../assets/login-animation.gif";
+// import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ImageToBase64 } from "../../util/ImageToBase64";
+// import { ImageToBase64 } from "../../util/ImageToBase64";
 import { toast } from "react-toastify";
 
 const SignUp = () => {
@@ -15,7 +15,7 @@ const SignUp = () => {
     email: "",
     password: "",
     confirmPassword: "",
-    imageUrl: "",
+    // imageUrl: "",
   });
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -25,15 +25,15 @@ const SignUp = () => {
       return { ...prev, [name]: value };
     });
   };
-  const handleUploadProfileImage = async (e) => {
-    const data = await ImageToBase64(e.target.files[0]);
-    setData((prev) => {
-      return {
-        ...prev,
-        imageUrl: data,
-      };
-    });
-  };
+  // const handleUploadProfileImage = async (e) => {
+  //   const data = await ImageToBase64(e.target.files[0]);
+  //   setData((prev) => {
+  //     return {
+  //       ...prev,
+  //       imageUrl: data,
+  //     };
+  //   });
+  // };
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -90,7 +90,7 @@ const SignUp = () => {
     <div className=" p-3 md:p-4">
       <div className="w-full max-w-sm items-center flex flex-col bg-white m-auto p-4">
         {/* <h1 className="text-center text-2xl font-bold">SignUp</h1> */}
-        <div className="w-20 h-20 overflow-hidden rounded-full drop-shadow-md shadow-md m-auto relative">
+        {/* <div className="w-20 h-20 overflow-hidden rounded-full drop-shadow-md shadow-md m-auto relative">
           <Image
             width={500}
             height={500}
@@ -112,7 +112,7 @@ const SignUp = () => {
               accept="image/*"
             />
           </label>
-        </div>
+        </div> */}
         <form onSubmit={handleSubmit} className="w-full py-3 flex flex-col">
           <label htmlFor="firstName">First Name</label>
           <input

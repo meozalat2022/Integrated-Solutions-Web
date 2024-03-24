@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+const Schema = mongoose.Schema;
 
 const userSchema = new mongoose.Schema({
   firstName: {
@@ -29,6 +30,7 @@ const userSchema = new mongoose.Schema({
   confirmPassword: {
     type: String,
   },
+  wishList: [{ type: Schema.Types.ObjectId, ref: "Product" }],
 });
 
 const User = mongoose.model("User", userSchema);

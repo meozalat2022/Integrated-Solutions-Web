@@ -97,6 +97,7 @@ const ProductsByBrand = ({ params }) => {
                     title={item.title}
                     imageUrl={item.imageUrl[0]}
                     price={item.price}
+                    promotionRate={item.promotionRate}
                   />
                 </div>
               ))}
