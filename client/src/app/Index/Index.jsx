@@ -5,7 +5,6 @@ import HomeSwiper from "../components/Swiper/HomeSwiper";
 import CategoryCard from "../components/CategoryCard/page";
 import ProductCard from "../components/ProductCard/page";
 import BrandCard from "../components/BrandCard/page";
-import { GrNext, GrPrevious } from "react-icons/gr";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getAllProductsFailure,

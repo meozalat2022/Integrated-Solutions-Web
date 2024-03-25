@@ -77,7 +77,6 @@ export const getProductByBrand = async (req, res, next) => {
 export const getSingleProduct = async (req, res, next) => {
   try {
     const product = await Product.findById(req.params.id);
-    console.log(product);
     if (!product) {
       return next(errorHandler(404, "Product Not found"));
     }

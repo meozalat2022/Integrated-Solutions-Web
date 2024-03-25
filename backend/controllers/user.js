@@ -2,7 +2,6 @@ import bcrypt from "bcryptjs";
 import { errorHandler } from "../utils/error.js";
 import jwt from "jsonwebtoken";
 import User from "../models/user.js";
-
 export const signup = async (req, res, next) => {
   const { firstName, lastName, email, password, confirmPassword, imageUrl } =
     req.body;
@@ -55,6 +54,28 @@ export const signout = async (req, res, next) => {
   try {
     res.clearCookie("access)token");
     res.status(200).json("Signed Out");
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const addToWishlist = async (req, res, next) => {
+  const { userId, productId } = req.body;
+  try {
+    const loggedInUser = await User.findOne({ _id: userId }).populate(
+      "wishList"
+    );
+    const foundProduct = loggedInUser.wishList.find(
+      (item) => item.id === productId
+    );
+    if (!foundProduct) {
+      loggedInUser.wishList.push(productId);
+      await loggedInUser.save();
+      return;
+    } else {
+      console.log("product found");
+    }
+    return res.status(201).json(loggedInUser);
   } catch (error) {
     next(error);
   }

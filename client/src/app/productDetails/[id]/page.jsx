@@ -50,6 +50,39 @@ const ProductDetails = ({ params }) => {
     fetChProduct();
   }, [productId]);
 
+  const onAddToWishlist = async () => {
+    try {
+      if (!currentUser) {
+        toast.success("You Need to Login First", {
+          hideProgressBar: false,
+        });
+        setError(true);
+        setLoading(false);
+        return;
+      }
+      setLoading(true);
+      const addedProduct = await fetch(
+        "http://localhost:8080/user/addToWishlist",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            userId: currentUser,
+            productId: productId,
+          }),
+        }
+      );
+
+      const data = await addedProduct.json();
+      setLoading(false);
+    } catch (error) {
+      setError(error.message);
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="m-6">
       <div className="flex gap-4 justify-between">
@@ -138,7 +171,10 @@ const ProductDetails = ({ params }) => {
               </button>
             </div>
           </div>
-          <div className="flex gap-2 items-center mt-4 hover:text-primary cursor-pointer">
+          <div
+            onClick={onAddToWishlist}
+            className="flex gap-2 items-center mt-4 hover:text-primary cursor-pointer"
+          >
             <FaRegHeart size={20} />
             <p>Add to Wish List</p>
           </div>
