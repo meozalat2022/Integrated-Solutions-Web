@@ -26,7 +26,7 @@ const ProductDetails = ({ params }) => {
       .filter((item) => item.categoryId === product.categoryId)
       .slice(0, 6);
   }
-
+  console.log(currentUser);
   useEffect(() => {
     const fetChProduct = async () => {
       try {

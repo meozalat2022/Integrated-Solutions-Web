@@ -2,7 +2,7 @@ import express, { json } from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-
+import cookieParser from "cookie-parser";
 import userRouter from "./routes/user.js";
 // import productRouter from "./routes/product.js";
 import categoriesRouter from "./routes/categories.js";
@@ -12,6 +12,7 @@ import productsRouter from "./routes/product.js";
 const app = express();
 app.use(cors());
 app.use(express.json({ limit: "10mb" }));
+app.use(cookieParser());
 dotenv.config();
 
 // app.get("/", (req, res) => {
